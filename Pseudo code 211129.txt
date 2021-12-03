@@ -1,0 +1,17 @@
+﻿
+Given a new guess length of d:
+1. MichaelTotal = 0, OracleTotal = 0
+2. Get a Michael Box
+3. Run forever:
+   3.1. wait_length = 0
+   3.2. Get an oracle box
+   3.3. While (cost(Oracle Box) + OracleTotal > cost(Michael Box) + MichaelTotal)
+      3.3.1. Run Michael Box
+      3.3.2. MichaelTotal += cost(Michael Box)
+      3.3.3. wait_length += cost(Michael Box)
+      3.3.4. If cost(Michael Box) >= cost(Oracle Box) or wait_length >= d^2:
+         3.3.4.1. Get a new Oracle Box
+         3.3.4.2. wait_length = 0
+      3.3.5. Get a Michael Box
+   3.4. Run Oracle Box
+   3.5. OracleTotal += cost(Oracle Box)
